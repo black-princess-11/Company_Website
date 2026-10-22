@@ -1,0 +1,271 @@
+.tm-section { padding: 80px 8%; text-align: center; }
+.tm-section h2 { font-size: 2.4rem; }
+.tm-section h2 span {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.tm-sub { color: var(--muted); margin: 10px 0 45px; }
+
+.tm-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 28px;
+}
+
+.tm-card {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.tm-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary);
+  box-shadow: 0 18px 40px var(--shadow);
+}
+
+/* Photo area */
+.tm-media {
+  position: relative;
+  aspect-ratio: 1 / 1.05;
+  overflow: hidden;
+  background: var(--gradient);
+}
+.tm-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s;
+}
+.tm-card:hover .tm-photo { transform: scale(1.07); }
+.tm-initial {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: var(--on-primary);
+}
+
+.tm-exp {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  background: var(--lime);
+  color: var(--ink);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* Social bar slides up on hover */
+.tm-social {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 36px 14px 14px;
+  background: linear-gradient(transparent, color-mix(in srgb, var(--ink) 85%, transparent));
+  transform: translateY(100%);
+  transition: 0.35s;
+}
+.tm-card:hover .tm-social { transform: none; }
+.tm-social a {
+  background: var(--card);
+  color: var(--ink);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: 0.2s;
+}
+.tm-social a:hover { background: var(--primary); color: var(--on-primary); }
+
+/* Touch screens have no hover, so always show the bar */
+@media (hover: none) {
+  .tm-social { transform: none; }
+}
+
+/* Text area */
+.tm-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px;
+}
+.tm-role { color: var(--primary); font-weight: 600; font-size: 0.85rem; }
+.tm-bio { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.tm-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+.tm-skills span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: var(--glow-1);
+  color: var(--primary);
+}
+
+/* =========================================================
+   RESPONSIVE SUPPORT PATCH
+   Keeps the existing design; adapts layout for smaller screens.
+   ========================================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+img, video, iframe, svg {
+  max-width: 100%;
+}
+html, body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+button, input, textarea, select {
+  max-width: 100%;
+}
+@media (max-width: 1200px) {
+  .services, .ab-section, .team-section, .tm-section, .portfolio-section,
+  .port-section, .blog-section, .contact-section, .careers-section,
+  .domain-section, .ec-section, .enterprise-section, .rv-section,
+  .service-detail-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .services-showcase-grid, .service-detail-features, .tm-grid,
+  .team-grid, .portfolio-grid, .port-grid, .blog-grid,
+  .domain-grid, .domains-grid, .enterprise-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 900px) {
+  .services-showcase-grid, .service-detail-features, .tm-grid,
+  .team-grid, .portfolio-grid, .port-grid, .blog-grid,
+  .domain-grid, .domains-grid, .enterprise-grid,
+  .ab-main, .about-grid, .contact-grid, .careers-grid,
+  .service-detail-intro, .ec-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .services, .ab-section, .tm-section, .team-section, .portfolio-section,
+  .blog-section, .contact-section, .careers-section,
+  .service-detail-section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .hero {
+    min-height: auto;
+    padding: 90px 6%;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.15;
+  }
+  .navbar {
+    gap: 16px;
+  }
+  .nav-right {
+    gap: 10px;
+  }
+  .phone {
+    display: none;
+  }
+  .service-detail-hero-image img,
+  .service-detail-feature-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .ft-grid, .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .services-showcase-grid, .service-detail-features, .tm-grid,
+  .team-grid, .portfolio-grid, .port-grid, .blog-grid,
+  .domain-grid, .domains-grid, .enterprise-grid,
+  .ab-main, .about-grid, .contact-grid, .careers-grid,
+  .ft-grid, .footer-grid, .ec-grid, .review-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .services, .ab-section, .tm-section, .team-section,
+  .portfolio-section, .blog-section, .contact-section,
+  .careers-section, .service-detail-section, .domain-section {
+    padding: 48px 5%;
+  }
+  .services-showcase-heading h2,
+  .service-detail-intro h2,
+  .service-detail-tech h2,
+  .service-detail-cta h2,
+  .ab-section h2, .tm-section h2 {
+    font-size: clamp(1.55rem, 7vw, 2.15rem);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+  .services-showcase-heading p,
+  .service-detail-description,
+  .service-detail-card p,
+  .ab-section p, .tm-section p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+  .service-showcase-card, .service-detail-card, .tm-card,
+  .portfolio-card, .blog-card, .domain-card {
+    min-width: 0;
+    width: 100%;
+  }
+  .service-showcase-top {
+    gap: 12px;
+  }
+  .service-showcase-tags, .service-detail-technologies,
+  .tm-skills, .ec-tags, .domain-tags {
+    flex-wrap: wrap;
+  }
+  .service-detail-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+  }
+  .service-detail-button, .nav-btn, .contact-form button {
+    max-width: 100%;
+    white-space: normal;
+  }
+  .page-banner, .pagebanner, .pb-banner {
+    min-height: 150px;
+    padding: 32px 5%;
+  }
+  .page-banner h1, .pagebanner h1, .pb-banner h1 {
+    font-size: clamp(1.7rem, 8vw, 2.4rem);
+    line-height: 1.15;
+  }
+  .ft-grid, .footer-grid {
+    gap: 24px;
+  }
+  .contact-form input, .contact-form textarea,
+  .contact-form select {
+    width: 100%;
+    min-width: 0;
+  }
+}
+@media (max-width: 380px) {
+  .services, .ab-section, .tm-section, .team-section,
+  .portfolio-section, .blog-section, .contact-section,
+  .careers-section, .service-detail-section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .service-showcase-card, .service-detail-card {
+    padding: 20px;
+  }
+}

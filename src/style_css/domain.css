@@ -1,0 +1,226 @@
+.dm-section { padding: 80px 8%; text-align: center; }
+.dm-section h2 { font-size: 2.4rem; }
+.dm-section h2 span {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.dm-sub { color: var(--muted); margin: 10px 0 40px; }
+
+.dm-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.dm-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 24px;
+  transition: 0.25s;
+}
+.dm-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary);
+  box-shadow: 0 12px 30px var(--shadow);
+}
+
+.dm-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  display: grid;
+  place-items: center;
+  font-size: 1.9rem;
+  border-radius: 18px;
+  background: var(--glow-1);
+}
+
+.dm-card h3 { margin-bottom: 14px; }
+
+.dm-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.dm-tags span {
+  font-size: 0.8rem;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+.dm-card:hover .dm-tags span {
+  background: var(--lime);
+  color: var(--ink);
+  border-color: var(--lime);
+}
+.dm-icon {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 16px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+}
+
+.dm-icon img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.dm-card:hover .dm-icon img {
+  transform: scale(1.08);
+}
+
+/* =========================================================
+   RESPONSIVE SUPPORT PATCH
+   Keeps the existing design; adapts layout for smaller screens.
+   ========================================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+img, video, iframe, svg {
+  max-width: 100%;
+}
+html, body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+button, input, textarea, select {
+  max-width: 100%;
+}
+@media (max-width: 1200px) {
+  .services, .ab-section, .team-section, .tm-section, .portfolio-section,
+  .port-section, .blog-section, .contact-section, .careers-section,
+  .domain-section, .ec-section, .enterprise-section, .rv-section,
+  .service-detail-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .services-showcase-grid, .service-detail-features, .tm-grid,
+  .team-grid, .portfolio-grid, .port-grid, .blog-grid,
+  .domain-grid, .domains-grid, .enterprise-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 900px) {
+  .services-showcase-grid, .service-detail-features, .tm-grid,
+  .team-grid, .portfolio-grid, .port-grid, .blog-grid,
+  .domain-grid, .domains-grid, .enterprise-grid,
+  .ab-main, .about-grid, .contact-grid, .careers-grid,
+  .service-detail-intro, .ec-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .services, .ab-section, .tm-section, .team-section, .portfolio-section,
+  .blog-section, .contact-section, .careers-section,
+  .service-detail-section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .hero {
+    min-height: auto;
+    padding: 90px 6%;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.15;
+  }
+  .navbar {
+    gap: 16px;
+  }
+  .nav-right {
+    gap: 10px;
+  }
+  .phone {
+    display: none;
+  }
+  .service-detail-hero-image img,
+  .service-detail-feature-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .ft-grid, .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .services-showcase-grid, .service-detail-features, .tm-grid,
+  .team-grid, .portfolio-grid, .port-grid, .blog-grid,
+  .domain-grid, .domains-grid, .enterprise-grid,
+  .ab-main, .about-grid, .contact-grid, .careers-grid,
+  .ft-grid, .footer-grid, .ec-grid, .review-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .services, .ab-section, .tm-section, .team-section,
+  .portfolio-section, .blog-section, .contact-section,
+  .careers-section, .service-detail-section, .domain-section {
+    padding: 48px 5%;
+  }
+  .services-showcase-heading h2,
+  .service-detail-intro h2,
+  .service-detail-tech h2,
+  .service-detail-cta h2,
+  .ab-section h2, .tm-section h2 {
+    font-size: clamp(1.55rem, 7vw, 2.15rem);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+  .services-showcase-heading p,
+  .service-detail-description,
+  .service-detail-card p,
+  .ab-section p, .tm-section p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+  .service-showcase-card, .service-detail-card, .tm-card,
+  .portfolio-card, .blog-card, .domain-card {
+    min-width: 0;
+    width: 100%;
+  }
+  .service-showcase-top {
+    gap: 12px;
+  }
+  .service-showcase-tags, .service-detail-technologies,
+  .tm-skills, .ec-tags, .domain-tags {
+    flex-wrap: wrap;
+  }
+  .service-detail-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+  }
+  .service-detail-button, .nav-btn, .contact-form button {
+    max-width: 100%;
+    white-space: normal;
+  }
+  .page-banner, .pagebanner, .pb-banner {
+    min-height: 150px;
+    padding: 32px 5%;
+  }
+  .page-banner h1, .pagebanner h1, .pb-banner h1 {
+    font-size: clamp(1.7rem, 8vw, 2.4rem);
+    line-height: 1.15;
+  }
+  .ft-grid, .footer-grid {
+    gap: 24px;
+  }
+  .contact-form input, .contact-form textarea,
+  .contact-form select {
+    width: 100%;
+    min-width: 0;
+  }
+}
+@media (max-width: 380px) {
+  .services, .ab-section, .tm-section, .team-section,
+  .portfolio-section, .blog-section, .contact-section,
+  .careers-section, .service-detail-section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .service-showcase-card, .service-detail-card {
+    padding: 20px;
+  }
+}

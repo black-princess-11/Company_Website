@@ -1,0 +1,545 @@
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 8%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--nav-bg);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Logo */
+
+.navbar-brand {
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo {
+  margin: 0;
+  color: var(--ink);
+}
+
+.logo span {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Main Navigation */
+
+.navbar ul {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  list-style: none;
+}
+
+.navbar ul a {
+  position: relative;
+  color: var(--ink);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* Navigation Hover */
+
+.navbar ul a:hover {
+  color: var(--primary);
+}
+
+/* Active Page */
+
+.navbar ul a.active {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Active Underline */
+
+.navbar ul a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--primary);
+}
+
+/* =========================================
+   RIGHT SIDE
+========================================= */
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.phone {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Get a Quote Button */
+
+.nav-btn {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--on-ink);
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-btn:hover {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+/* =========================================
+   HAMBURGER BUTTON
+========================================= */
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.burger span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--ink);
+}
+
+/* =========================================
+   SERVICES DROPDOWN
+========================================= */
+
+.services-menu {
+  position: relative;
+}
+
+.services-menu-heading {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.services-menu-heading > a {
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.services-menu-heading > a:hover,
+.services-menu-heading > a.active {
+  color: var(--primary);
+}
+
+/* Dropdown Arrow */
+
+.services-menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 5px;
+  border: none;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.services-arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.services-open .services-arrow {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Container */
+
+.services-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 16px);
+  left: -16px;
+  width: 270px;
+  padding: 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 12px 28px var(--shadow);
+  z-index: 1001;
+}
+
+/* Show Dropdown */
+
+.services-menu:hover .services-dropdown,
+.services-menu:focus-within .services-dropdown,
+.services-menu.services-open .services-dropdown {
+  display: block;
+}
+
+/* Dropdown Links */
+
+.navbar ul .services-dropdown a {
+  display: block;
+  position: static;
+  padding: 12px 14px;
+  margin: 2px 0;
+  border-radius: 8px;
+  color: var(--ink);
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* IMPORTANT:
+   Hover changes only text color.
+   No background color change.
+*/
+
+.navbar ul .services-dropdown a:hover,
+.navbar ul .services-dropdown a.active {
+  color: var(--primary);
+  background: transparent;
+  font-weight: 600;
+}
+
+/* Prevent Main Navbar Underline in Dropdown */
+
+.navbar ul .services-dropdown a::after {
+  display: none;
+}
+
+/* Keyboard Accessibility */
+
+.services-dropdown a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* =========================================
+   TABLET AND MOBILE
+========================================= */
+
+@media (max-width: 900px) {
+  .navbar {
+    padding: 16px 5%;
+  }
+
+  .phone {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  /* Mobile Main Menu */
+
+  .navbar ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-height: calc(100vh - 75px);
+    overflow-y: auto;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .navbar ul.open {
+    display: flex;
+  }
+
+  .navbar ul > li > a {
+    display: block;
+    padding: 16px 8%;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Mobile Active Link */
+
+  .navbar ul > li > a.active {
+    background: var(--feature-bg);
+    color: var(--primary);
+  }
+
+  .navbar ul > li > a.active::after {
+    display: none;
+  }
+
+  /* Mobile Services Heading */
+
+  .services-menu {
+    width: 100%;
+  }
+
+  .services-menu-heading {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 8%;
+    border-top: 1px solid var(--border);
+  }
+
+  .services-menu-heading > a {
+    flex: 1;
+    padding: 16px 0;
+  }
+
+  .services-menu-toggle {
+    padding: 12px;
+  }
+
+  /* Mobile Services Dropdown */
+
+  .services-dropdown {
+    position: static;
+    width: auto;
+    margin: 0 8% 12px;
+    padding: 8px;
+    box-shadow: none;
+  }
+
+  .navbar ul .services-dropdown a {
+    padding: 12px;
+    margin: 2px 0;
+    border: none;
+    background: transparent;
+  }
+
+  .navbar ul .services-dropdown a:hover,
+  .navbar ul .services-dropdown a.active {
+    color: var(--primary);
+    background: transparent;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+  .navbar {
+    padding: 14px 5%;
+  }
+
+  .nav-btn {
+    display: none;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
+}
+
+/* Keep mobile menu clean: text color only */
+
+@media (max-width: 900px) {
+  .navbar ul > li > a:hover,
+  .navbar ul > li > a.active {
+    background: transparent;
+    color: var(--primary);
+  }
+
+  .navbar ul > li > a.active::after {
+    display: none;
+  }
+
+  .navbar ul .services-dropdown a:hover,
+  .navbar ul .services-dropdown a.active {
+    background: transparent;
+    color: var(--primary);
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE SUPPORT PATCH
+   Keeps the existing design; adapts layout for smaller screens.
+   ========================================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+img, video, iframe, svg {
+  max-width: 100%;
+}
+html, body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+button, input, textarea, select {
+  max-width: 100%;
+}
+@media (max-width: 1200px) {
+  .services, .ab-section, .team-section, .tm-section, .portfolio-section,
+  .port-section, .blog-section, .contact-section, .careers-section,
+  .domain-section, .ec-section, .enterprise-section, .rv-section,
+  .service-detail-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .services-showcase-grid, .service-detail-features, .tm-grid,
+  .team-grid, .portfolio-grid, .port-grid, .blog-grid,
+  .domain-grid, .domains-grid, .enterprise-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 900px) {
+  .services-showcase-grid, .service-detail-features, .tm-grid,
+  .team-grid, .portfolio-grid, .port-grid, .blog-grid,
+  .domain-grid, .domains-grid, .enterprise-grid,
+  .ab-main, .about-grid, .contact-grid, .careers-grid,
+  .service-detail-intro, .ec-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .services, .ab-section, .tm-section, .team-section, .portfolio-section,
+  .blog-section, .contact-section, .careers-section,
+  .service-detail-section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .hero {
+    min-height: auto;
+    padding: 90px 6%;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.15;
+  }
+  .navbar {
+    gap: 16px;
+  }
+  .nav-right {
+    gap: 10px;
+  }
+  .phone {
+    display: none;
+  }
+  .service-detail-hero-image img,
+  .service-detail-feature-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .ft-grid, .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .services-showcase-grid, .service-detail-features, .tm-grid,
+  .team-grid, .portfolio-grid, .port-grid, .blog-grid,
+  .domain-grid, .domains-grid, .enterprise-grid,
+  .ab-main, .about-grid, .contact-grid, .careers-grid,
+  .ft-grid, .footer-grid, .ec-grid, .review-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .services, .ab-section, .tm-section, .team-section,
+  .portfolio-section, .blog-section, .contact-section,
+  .careers-section, .service-detail-section, .domain-section {
+    padding: 48px 5%;
+  }
+  .services-showcase-heading h2,
+  .service-detail-intro h2,
+  .service-detail-tech h2,
+  .service-detail-cta h2,
+  .ab-section h2, .tm-section h2 {
+    font-size: clamp(1.55rem, 7vw, 2.15rem);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+  .services-showcase-heading p,
+  .service-detail-description,
+  .service-detail-card p,
+  .ab-section p, .tm-section p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+  .service-showcase-card, .service-detail-card, .tm-card,
+  .portfolio-card, .blog-card, .domain-card {
+    min-width: 0;
+    width: 100%;
+  }
+  .service-showcase-top {
+    gap: 12px;
+  }
+  .service-showcase-tags, .service-detail-technologies,
+  .tm-skills, .ec-tags, .domain-tags {
+    flex-wrap: wrap;
+  }
+  .service-detail-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+  }
+  .service-detail-button, .nav-btn, .contact-form button {
+    max-width: 100%;
+    white-space: normal;
+  }
+  .page-banner, .pagebanner, .pb-banner {
+    min-height: 150px;
+    padding: 32px 5%;
+  }
+  .page-banner h1, .pagebanner h1, .pb-banner h1 {
+    font-size: clamp(1.7rem, 8vw, 2.4rem);
+    line-height: 1.15;
+  }
+  .ft-grid, .footer-grid {
+    gap: 24px;
+  }
+  .contact-form input, .contact-form textarea,
+  .contact-form select {
+    width: 100%;
+    min-width: 0;
+  }
+}
+@media (max-width: 380px) {
+  .services, .ab-section, .tm-section, .team-section,
+  .portfolio-section, .blog-section, .contact-section,
+  .careers-section, .service-detail-section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .service-showcase-card, .service-detail-card {
+    padding: 20px;
+  }
+}

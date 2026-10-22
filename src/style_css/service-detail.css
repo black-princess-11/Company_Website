@@ -1,0 +1,636 @@
+
+/* =========================================
+   SERVICE DETAIL PAGE
+========================================= */
+
+.service-detail-page {
+  width: 100%;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.service-detail-section {
+  position: relative;
+  padding: 80px 8%;
+  background: var(--bg);
+}
+
+.service-detail-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   INTRODUCTION
+========================================= */
+
+.service-detail-intro {
+  max-width: 850px;
+  margin-bottom: 48px;
+  animation: detailFadeUp 0.7s ease both;
+}
+
+.service-detail-label {
+  display: inline-block;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.6;
+}
+
+.service-detail-intro h2 {
+  margin: 16px 0;
+  color: var(--ink);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.22;
+  letter-spacing: -0.5px;
+}
+
+.service-detail-intro h2 strong {
+  color: var(--primary);
+}
+
+.service-detail-description {
+  max-width: 780px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.03rem;
+  line-height: 1.9;
+}
+
+/* =========================================
+   SERVICE FEATURE CARDS
+========================================= */
+
+.service-detail-features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.service-detail-features > * {
+  display: flex;
+  min-width: 0;
+}
+
+.service-detail-card {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 220px;
+  box-sizing: border-box;
+  padding: 29px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--card);
+  box-shadow: 0 7px 24px var(--shadow);
+  animation: detailFadeUp 0.6s ease both;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.service-detail-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+  box-shadow: 0 16px 34px var(--shadow);
+}
+
+/* Feature number */
+
+.service-detail-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.service-detail-card:hover .service-detail-number {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+}
+
+/* Feature title and description */
+
+.service-detail-card h3 {
+  margin: 21px 0 10px;
+  color: var(--ink);
+  font-size: 1.13rem;
+  line-height: 1.5;
+  transition: color 0.25s ease;
+}
+
+.service-detail-card:hover h3 {
+  color: var(--primary);
+}
+
+.service-detail-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.85;
+}
+
+/* =========================================
+   TECHNOLOGIES
+========================================= */
+
+.service-detail-tech {
+  margin-top: 65px;
+  animation: detailFadeUp 0.7s ease both;
+}
+
+.service-detail-tech h2 {
+  margin: 14px 0 25px;
+  color: var(--ink);
+  font-size: clamp(1.65rem, 3vw, 2.2rem);
+  line-height: 1.35;
+}
+
+.service-detail-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 11px;
+}
+
+.service-detail-technologies span {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: var(--card);
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.5;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.service-detail-technologies span:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+  box-shadow: 0 5px 16px var(--shadow);
+}
+
+/* =========================================
+   CONTACT / QUOTE CTA
+========================================= */
+
+.service-detail-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 62px;
+  padding: 38px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--card);
+  box-shadow: 0 8px 26px var(--shadow);
+  animation: detailFadeUp 0.7s ease both;
+}
+
+.service-detail-cta > div {
+  max-width: 700px;
+}
+
+.service-detail-cta h2,
+.service-detail-cta h3 {
+  margin: 13px 0;
+  color: var(--ink);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.4;
+}
+
+.service-detail-cta p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.97rem;
+  line-height: 1.85;
+}
+
+/* CTA button */
+
+.service-detail-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-shrink: 0;
+  padding: 14px 24px;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  background: var(--ink);
+  color: var(--on-ink);
+  font-size: 0.94rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.service-detail-button:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+  box-shadow: 0 8px 20px var(--shadow);
+}
+
+.service-detail-button:focus-visible,
+.service-detail-back:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+/* =========================================
+   BACK TO ALL SERVICES
+========================================= */
+
+.service-detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    gap 0.25s ease;
+}
+
+.service-detail-back:hover {
+  gap: 12px;
+  color: var(--primary);
+}
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes detailFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+  .service-detail-section {
+    padding: 65px 6%;
+  }
+
+  .service-detail-features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .service-detail-cta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .service-detail-section {
+    padding: 48px 5%;
+  }
+
+  .service-detail-intro {
+    margin-bottom: 32px;
+  }
+
+  .service-detail-intro h2 {
+    font-size: clamp(1.8rem, 8vw, 2.25rem);
+  }
+
+  .service-detail-description {
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .service-detail-features {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 17px;
+    margin-top: 28px;
+  }
+
+  .service-detail-card {
+    min-height: 0;
+    padding: 25px;
+  }
+
+  .service-detail-card h3 {
+    margin-top: 17px;
+  }
+
+  .service-detail-tech {
+    margin-top: 45px;
+  }
+
+  .service-detail-technologies {
+    gap: 9px;
+  }
+
+  .service-detail-technologies span {
+    padding: 9px 12px;
+    font-size: 0.84rem;
+  }
+
+  .service-detail-cta {
+    gap: 23px;
+    margin-top: 45px;
+    padding: 25px;
+  }
+
+  .service-detail-cta h2,
+  .service-detail-cta h3 {
+    font-size: 1.55rem;
+  }
+
+  .service-detail-button {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 18px;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .service-detail-intro,
+  .service-detail-card,
+  .service-detail-tech,
+  .service-detail-cta {
+    animation: none;
+  }
+
+  .service-detail-card,
+  .service-detail-number,
+  .service-detail-technologies span,
+  .service-detail-button,
+  .service-detail-back {
+    transition: none;
+  }
+
+  .service-detail-card:hover,
+  .service-detail-technologies span:hover,
+  .service-detail-button:hover {
+    transform: none;
+  }
+}
+
+/* Service detail images */
+.service-detail-hero-image {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.service-detail-main-image {
+  display: block;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.service-detail-feature-image {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 76px;
+  margin-bottom: 12px;
+}
+
+.service-detail-feature-img {
+  display: block;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.service-detail-image-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.service-detail-hero-image .service-detail-image-fallback {
+  width: 100px;
+  height: 100px;
+}
+
+@media (max-width: 600px) {
+  .service-detail-main-image,
+  .service-detail-hero-image .service-detail-image-fallback {
+    width: 80px;
+    height: 80px;
+  }
+
+  .service-detail-feature-img {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE SUPPORT PATCH
+   Keeps the existing design; adapts layout for smaller screens.
+   ========================================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+img, video, iframe, svg {
+  max-width: 100%;
+}
+html, body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+button, input, textarea, select {
+  max-width: 100%;
+}
+@media (max-width: 1200px) {
+  .services, .ab-section, .team-section, .tm-section, .portfolio-section,
+  .port-section, .blog-section, .contact-section, .careers-section,
+  .domain-section, .ec-section, .enterprise-section, .rv-section,
+  .service-detail-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .services-showcase-grid, .service-detail-features, .tm-grid,
+  .team-grid, .portfolio-grid, .port-grid, .blog-grid,
+  .domain-grid, .domains-grid, .enterprise-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 900px) {
+  .services-showcase-grid, .service-detail-features, .tm-grid,
+  .team-grid, .portfolio-grid, .port-grid, .blog-grid,
+  .domain-grid, .domains-grid, .enterprise-grid,
+  .ab-main, .about-grid, .contact-grid, .careers-grid,
+  .service-detail-intro, .ec-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .services, .ab-section, .tm-section, .team-section, .portfolio-section,
+  .blog-section, .contact-section, .careers-section,
+  .service-detail-section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .hero {
+    min-height: auto;
+    padding: 90px 6%;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.15;
+  }
+  .navbar {
+    gap: 16px;
+  }
+  .nav-right {
+    gap: 10px;
+  }
+  .phone {
+    display: none;
+  }
+  .service-detail-hero-image img,
+  .service-detail-feature-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .ft-grid, .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .services-showcase-grid, .service-detail-features, .tm-grid,
+  .team-grid, .portfolio-grid, .port-grid, .blog-grid,
+  .domain-grid, .domains-grid, .enterprise-grid,
+  .ab-main, .about-grid, .contact-grid, .careers-grid,
+  .ft-grid, .footer-grid, .ec-grid, .review-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .services, .ab-section, .tm-section, .team-section,
+  .portfolio-section, .blog-section, .contact-section,
+  .careers-section, .service-detail-section, .domain-section {
+    padding: 48px 5%;
+  }
+  .services-showcase-heading h2,
+  .service-detail-intro h2,
+  .service-detail-tech h2,
+  .service-detail-cta h2,
+  .ab-section h2, .tm-section h2 {
+    font-size: clamp(1.55rem, 7vw, 2.15rem);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+  .services-showcase-heading p,
+  .service-detail-description,
+  .service-detail-card p,
+  .ab-section p, .tm-section p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+  .service-showcase-card, .service-detail-card, .tm-card,
+  .portfolio-card, .blog-card, .domain-card {
+    min-width: 0;
+    width: 100%;
+  }
+  .service-showcase-top {
+    gap: 12px;
+  }
+  .service-showcase-tags, .service-detail-technologies,
+  .tm-skills, .ec-tags, .domain-tags {
+    flex-wrap: wrap;
+  }
+  .service-detail-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+  }
+  .service-detail-button, .nav-btn, .contact-form button {
+    max-width: 100%;
+    white-space: normal;
+  }
+  .page-banner, .pagebanner, .pb-banner {
+    min-height: 150px;
+    padding: 32px 5%;
+  }
+  .page-banner h1, .pagebanner h1, .pb-banner h1 {
+    font-size: clamp(1.7rem, 8vw, 2.4rem);
+    line-height: 1.15;
+  }
+  .ft-grid, .footer-grid {
+    gap: 24px;
+  }
+  .contact-form input, .contact-form textarea,
+  .contact-form select {
+    width: 100%;
+    min-width: 0;
+  }
+}
+@media (max-width: 380px) {
+  .services, .ab-section, .tm-section, .team-section,
+  .portfolio-section, .blog-section, .contact-section,
+  .careers-section, .service-detail-section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .service-showcase-card, .service-detail-card {
+    padding: 20px;
+  }
+}

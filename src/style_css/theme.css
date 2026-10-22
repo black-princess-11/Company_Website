@@ -1,0 +1,32 @@
+:root {
+  /* Brand colors: change these */
+  --primary: #5b3df5;
+  --secondary: #ff5c8a;
+  --lime: #b6f24b;
+
+  /* Base colors */
+  --bg: #faf7f2;
+  --card: #ffffff;
+  --ink: #1b1535;
+  --muted: #6b6784;
+  --border: #ebe5f5;
+
+  /* Text on colored backgrounds */
+  --on-primary: #ffffff;
+  --on-ink: #ffffff;
+
+  /* Auto-made from the colors above (do not edit) */
+  --gradient: linear-gradient(90deg, var(--primary), var(--secondary));
+  --nav-bg: color-mix(in srgb, var(--bg) 90%, transparent);
+  --glow-1: color-mix(in srgb, var(--primary) 12%, transparent);
+  --glow-2: color-mix(in srgb, var(--secondary) 14%, transparent);
+  --shadow: color-mix(in srgb, var(--primary) 15%, transparent);
+  --on-ink-muted: color-mix(in srgb, var(--on-ink) 70%, transparent);
+  --overlay: color-mix(in srgb, var(--ink) 60%, transparent);
+
+    --feature-bg: color-mix(in srgb, var(--primary) 85%, var(--ink));
+  --feature-card: color-mix(in srgb, var(--on-ink) 10%, transparent);
+  --feature-line: color-mix(in srgb, var(--on-ink) 22%, transparent);
+
+    --banner-overlay: color-mix(in srgb, var(--ink) 75%, transparent);
+}

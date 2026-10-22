@@ -1,0 +1,331 @@
+.pb-banner {
+  position: relative;
+  min-height: 175px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 45px 8%;
+
+  background:
+    radial-gradient(
+      circle at 15% 30%,
+      var(--glow-1),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 85% 70%,
+      var(--glow-2),
+      transparent 45%
+    ),
+    var(--ink);
+
+  color: var(--on-ink);
+
+  overflow: hidden;
+}
+
+/* Background image */
+.pb-banner.has-img {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Dark/purple overlay */
+.pb-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(20, 34, 105, 0.92),
+      rgba(43, 32, 95, 0.72),
+      rgba(82, 24, 82, 0.78)
+    );
+
+  z-index: 0;
+}
+
+/* Content */
+.pb-content {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 800px;
+}
+
+/* Small green badge */
+.pb-badge {
+  display: inline-block;
+
+  padding: 5px 14px;
+
+  margin-bottom: 10px;
+
+  background: var(--lime);
+  color: var(--ink);
+
+  border-radius: 30px;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* Title */
+.pb-banner h1 {
+  margin: 0;
+
+  font-size: 2.6rem;
+  font-weight: 800;
+
+  color: #ffffff;
+}
+
+/* Description */
+.pb-banner p {
+  margin: 8px auto 0;
+
+  max-width: 600px;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  line-height: 1.6;
+
+  font-size: 0.95rem;
+}
+
+/* Breadcrumb */
+.pb-crumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 14px;
+
+  font-size: 0.82rem;
+
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.pb-crumb a {
+  color: #ffffff;
+  text-decoration: none;
+
+  transition: 0.2s;
+}
+
+.pb-crumb a:hover {
+  color: var(--lime);
+}
+
+.pb-crumb span {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.pb-crumb strong {
+  color: var(--lime);
+  font-weight: 600;
+}
+
+/* Desktop parallax */
+@media (min-width: 900px) {
+  .pb-banner.has-img {
+    background-attachment: fixed;
+  }
+}
+
+/* Tablet */
+@media (max-width: 800px) {
+  .pb-banner {
+    min-height: 160px;
+    padding: 40px 6%;
+  }
+
+  .pb-banner h1 {
+    font-size: 2.3rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .pb-banner {
+    min-height: 150px;
+    padding: 35px 6%;
+  }
+
+  .pb-banner h1 {
+    font-size: 2rem;
+  }
+
+  .pb-banner p {
+    font-size: 0.85rem;
+  }
+
+  .pb-badge {
+    font-size: 0.65rem;
+  }
+
+  .pb-crumb {
+    font-size: 0.75rem;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE SUPPORT PATCH
+   Keeps the existing design; adapts layout for smaller screens.
+   ========================================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+img, video, iframe, svg {
+  max-width: 100%;
+}
+html, body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+button, input, textarea, select {
+  max-width: 100%;
+}
+@media (max-width: 1200px) {
+  .services, .ab-section, .team-section, .tm-section, .portfolio-section,
+  .port-section, .blog-section, .contact-section, .careers-section,
+  .domain-section, .ec-section, .enterprise-section, .rv-section,
+  .service-detail-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .services-showcase-grid, .service-detail-features, .tm-grid,
+  .team-grid, .portfolio-grid, .port-grid, .blog-grid,
+  .domain-grid, .domains-grid, .enterprise-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 900px) {
+  .services-showcase-grid, .service-detail-features, .tm-grid,
+  .team-grid, .portfolio-grid, .port-grid, .blog-grid,
+  .domain-grid, .domains-grid, .enterprise-grid,
+  .ab-main, .about-grid, .contact-grid, .careers-grid,
+  .service-detail-intro, .ec-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .services, .ab-section, .tm-section, .team-section, .portfolio-section,
+  .blog-section, .contact-section, .careers-section,
+  .service-detail-section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .hero {
+    min-height: auto;
+    padding: 90px 6%;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.15;
+  }
+  .navbar {
+    gap: 16px;
+  }
+  .nav-right {
+    gap: 10px;
+  }
+  .phone {
+    display: none;
+  }
+  .service-detail-hero-image img,
+  .service-detail-feature-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .ft-grid, .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .services-showcase-grid, .service-detail-features, .tm-grid,
+  .team-grid, .portfolio-grid, .port-grid, .blog-grid,
+  .domain-grid, .domains-grid, .enterprise-grid,
+  .ab-main, .about-grid, .contact-grid, .careers-grid,
+  .ft-grid, .footer-grid, .ec-grid, .review-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .services, .ab-section, .tm-section, .team-section,
+  .portfolio-section, .blog-section, .contact-section,
+  .careers-section, .service-detail-section, .domain-section {
+    padding: 48px 5%;
+  }
+  .services-showcase-heading h2,
+  .service-detail-intro h2,
+  .service-detail-tech h2,
+  .service-detail-cta h2,
+  .ab-section h2, .tm-section h2 {
+    font-size: clamp(1.55rem, 7vw, 2.15rem);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+  .services-showcase-heading p,
+  .service-detail-description,
+  .service-detail-card p,
+  .ab-section p, .tm-section p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+  .service-showcase-card, .service-detail-card, .tm-card,
+  .portfolio-card, .blog-card, .domain-card {
+    min-width: 0;
+    width: 100%;
+  }
+  .service-showcase-top {
+    gap: 12px;
+  }
+  .service-showcase-tags, .service-detail-technologies,
+  .tm-skills, .ec-tags, .domain-tags {
+    flex-wrap: wrap;
+  }
+  .service-detail-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+  }
+  .service-detail-button, .nav-btn, .contact-form button {
+    max-width: 100%;
+    white-space: normal;
+  }
+  .page-banner, .pagebanner, .pb-banner {
+    min-height: 150px;
+    padding: 32px 5%;
+  }
+  .page-banner h1, .pagebanner h1, .pb-banner h1 {
+    font-size: clamp(1.7rem, 8vw, 2.4rem);
+    line-height: 1.15;
+  }
+  .ft-grid, .footer-grid {
+    gap: 24px;
+  }
+  .contact-form input, .contact-form textarea,
+  .contact-form select {
+    width: 100%;
+    min-width: 0;
+  }
+}
+@media (max-width: 380px) {
+  .services, .ab-section, .tm-section, .team-section,
+  .portfolio-section, .blog-section, .contact-section,
+  .careers-section, .service-detail-section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .service-showcase-card, .service-detail-card {
+    padding: 20px;
+  }
+}
